@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import SiteHeader from "@/app/site-header";
 import { getMovieDetails, OmdbError } from "@/lib/omdb";
 
 type MoviePageProps = {
@@ -24,14 +25,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
 
     return (
       <main className="page-shell">
-        <header className="site-header">
-          <Link aria-label="Rotten Peters home" className="wordmark" href="/">
-            <span aria-hidden="true" className="wordmark-icon">
-              R
-            </span>
-            <span>rotten peters</span>
-          </Link>
-        </header>
+        <SiteHeader />
         <section className="detail-error" role="alert">
           <p className="eyebrow">A QUICK PAUSE</p>
           <h1>We couldn’t load this film.</h1>
@@ -50,17 +44,13 @@ export default async function MoviePage({ params }: MoviePageProps) {
 
   return (
     <main className="page-shell">
-      <header className="site-header">
-        <Link aria-label="Rotten Peters home" className="wordmark" href="/">
-          <span aria-hidden="true" className="wordmark-icon">
-            R
-          </span>
-          <span>rotten peters</span>
-        </Link>
-        <Link className="header-back-link" href="/">
-          <span aria-hidden="true">←</span> Search movies
-        </Link>
-      </header>
+      <SiteHeader
+        action={
+          <Link className="header-back-link" href="/">
+            <span aria-hidden="true">←</span> Search movies
+          </Link>
+        }
+      />
 
       <article className="movie-detail">
         <Link className="back-link" href="/">

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import MovieResults from "@/app/movie-results";
+import SiteHeader from "@/app/site-header";
 import { searchMovies, type MovieSummary } from "@/lib/omdb";
 
 type HomeProps = {
@@ -25,30 +25,16 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <main className="page-shell">
-      <header className="site-header">
-        <Link aria-label="Rotten Peters home" className="wordmark" href="/">
-          <span aria-hidden="true" className="wordmark-icon">
-            R
-          </span>
-          <span>rotten peters</span>
-        </Link>
-        <span className="header-note">A place for people who love movies</span>
-      </header>
+      <SiteHeader note="A place for cinephiles not cinephobes" />
 
       <section aria-labelledby="search-title" className="hero">
-        <p className="eyebrow">
-          <span aria-hidden="true" className="eyebrow-star">
-            ✳
-          </span>
-          YOUR NEXT GREAT WATCH STARTS HERE
-        </p>
         <h1 id="search-title">
-          Every movie has
+          A movie app
           <br />
-          <span>a story.</span> Find yours.
+          <span>for the people.</span> By a person.
         </h1>
         <p className="hero-copy">
-          Search the movies you love, then find out what everyone thinks.
+          Search the movies you want to rate.
         </p>
         <form action="/" className="search-form" role="search">
           <label className="visually-hidden" htmlFor="movie-search">
