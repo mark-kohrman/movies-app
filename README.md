@@ -26,6 +26,10 @@ A movie discovery app built with Next.js, TypeScript, and Tailwind CSS. Search O
 
 Search from the home page and select a result to see its details. Movie data is provided by the [OMDb API](https://www.omdbapi.com/). Sign-in is optional and does not restrict movie search or detail pages. Email accounts use a password and a username saved in the Supabase Auth user metadata. A username may be 3–24 letters, numbers, or underscores, or an email address.
 
+Signed-in users can rate movies from their detail pages, write an optional review, and view or update their ratings from **My ratings**. Choose the cards or compact table view there. To enable ratings, run [`supabase/movie-ratings.sql`](./supabase/movie-ratings.sql) in the Supabase SQL Editor. The table stores one rating per user and movie, enforces 0.0–5.0 ratings in 0.1 increments, and uses row-level security so users can only access their own ratings.
+
+To share reviews with friends, run [`supabase/social-reviews.sql`](./supabase/social-reviews.sql) after the username and movie-ratings SQL setup. It makes existing ratings private, adds username-based connection requests, and enables comments on non-private reviews between accepted connections. New reviews are shared with connections unless **Keep this review private** is checked. Review owners can delete any comments on their reviews; commenters can delete their own comments. Signed-in users can manage connections and browse **Shared reviews** from the Community menu.
+
 ## Supabase and OAuth dashboard setup
 
 These are external dashboard steps; the app code cannot create provider credentials or enable OAuth by itself.
