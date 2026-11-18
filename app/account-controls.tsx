@@ -46,6 +46,16 @@ export default async function AccountControls() {
           <span className="header-account" title={userName}>
             {userName}
           </span>
+          <Link className="my-ratings-link" href="/my-ratings">
+            My ratings
+          </Link>
+          <details className="account-menu">
+            <summary className="my-ratings-link">Community</summary>
+            <div className="account-menu-items">
+              <Link href="/connections">Connections</Link>
+              <Link href="/shared-reviews">Shared reviews</Link>
+            </div>
+          </details>
           <SignOutButton />
         </>
       ) : (
